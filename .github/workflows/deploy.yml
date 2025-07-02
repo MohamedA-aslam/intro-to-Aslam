@@ -1,13 +1,14 @@
+
 name: Deploy Static Site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # Trigger on push to main
+    branches: [ main ]  
 
 permissions:
   contents: read
   pages: write
-  id-token: write   # Required for GitHub Pages deployment
+  id-token: write  
 
 jobs:
   deploy:
@@ -19,16 +20,16 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
 
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload site content
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # The folder to publish (current dir)
+          path: .  
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
